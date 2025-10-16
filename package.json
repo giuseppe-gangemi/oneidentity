@@ -9,7 +9,7 @@
   },
   "scripts": {
     "version": "yarn changeset version && yarn --mode update-lockfile",
-    "release": "yarn build && changeset publish"
+    "tag": "yarn changeset tag"
   },
   "workspaces": [
     "src/oneid/oneid-fe/",
