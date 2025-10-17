@@ -35,18 +35,10 @@ jobs:
         uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
         with:
           version: yarn run version
-          publish: yarn changeset tag
-          createGithubReleases: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create GitHub Release for oneidentity only
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          # Get only the oneidentity tag
-          TAG=$(git tag --points-at HEAD | grep '^oneidentity@' || echo "")
-          if [ -n "$TAG" ]; then
-            gh release create "$TAG" --generate-notes --title "$TAG"
-          fi
+          publish: |
+            VERSION=$(node -p "require('./package.json').version")
+            git tag "oneidentity@${VERSION}"
+            git push origin "oneidentity@${VERSION}"
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

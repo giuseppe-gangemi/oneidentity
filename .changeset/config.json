@@ -9,6 +9,6 @@
   "updateInternalDependencies": "minor",
   "privatePackages": {
     "version": true,
-    "tag": true
+    "tag": false
   }
 }
