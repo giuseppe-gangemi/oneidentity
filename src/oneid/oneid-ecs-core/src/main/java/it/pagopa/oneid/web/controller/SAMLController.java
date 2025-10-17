@@ -72,7 +72,6 @@ public class SAMLController {
   @ControllerCustomInterceptor
   public Response samlACS(@BeanParam @Valid SAMLResponseDTO samlResponseDTO) {
     Log.info("start");
-    // TODO remove test comment
     // 1a. Get CurrentAuthDTO parameters
 
     org.opensaml.saml.saml2.core.Response response = currentAuthDTO.getResponse();
