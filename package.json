@@ -14,7 +14,9 @@
   "workspaces": [
     "src/oneid/oneid-fe/",
     "src/oneid/oneid-control-panel/",
-    "src/oneid/oneid-webui-e2e/",
+    "src/oneid/oneid-ecs-core/",
+    "src/oneid/oneid-ecs-internal-idp/",
+    "src/infra/",
     "."
   ]
 }

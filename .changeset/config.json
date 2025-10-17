@@ -7,9 +7,15 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [],
+  "ignore": [
+    "oi-frontend",
+    "oi-control-panel",
+    "oneid-ecs-core",
+    "oneid-ecs-internal-idp",
+    "infra"
+  ],
   "privatePackages": {
     "version": true,
-    "tag": true
+    "tag": false
   }
 }
