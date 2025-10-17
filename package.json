@@ -1,9 +1,15 @@
 {
   "name": "oneidentity",
   "version": "3.0.0",
-  "private": true,
   "repository": "git+https://github.com/pagopa/oneidentity.git",
   "license": "ISC",
+  "dependencies": {
+    "oi-frontend": "*",
+    "oi-control-panel": "*",
+    "oneid-ecs-core": "*",
+    "oneid-ecs-internal-idp": "*",
+    "infra": "*"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.29.7"
   },
