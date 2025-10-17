@@ -35,10 +35,7 @@ jobs:
         uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
         with:
           version: yarn run version
-          publish: |
-            VERSION=$(node -p "require('./package.json').version")
-            git tag "oneidentity@${VERSION}"
-            git push origin "oneidentity@${VERSION}"
-          createGithubReleases: true
+          publish: yarn changeset tag
+          createGithubReleases: aggregate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
