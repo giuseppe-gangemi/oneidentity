@@ -1,6 +1,7 @@
 {
   "name": "oneidentity",
   "version": "3.0.0",
+  "private": true,
   "repository": "git+https://github.com/pagopa/oneidentity.git",
   "license": "ISC",
   "dependencies": {

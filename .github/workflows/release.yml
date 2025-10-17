@@ -36,6 +36,17 @@ jobs:
         with:
           version: yarn run version
           publish: yarn changeset tag
-          createGithubReleases: true
+          createGithubReleases: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub Release for oneidentity only
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          # Get only the oneidentity tag
+          TAG=$(git tag --points-at HEAD | grep '^oneidentity@' || echo "")
+          if [ -n "$TAG" ]; then
+            gh release create "$TAG" --generate-notes --title "$TAG"
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
