@@ -44,20 +44,28 @@ jobs:
           ROOT_VERSION=$(node -p "require('./package.json').version")
           ROOT_TAG="oneidentity@${ROOT_VERSION}"
 
-          git tag "$ROOT_TAG"
-          git push origin "$ROOT_TAG"
-
-          RELEASE_NOTES="Release of oneidentity monorepo v${ROOT_VERSION}"
-          if [ -f "CHANGELOG.md" ]; then
-            CHANGELOG_SECTION=$(awk "/## ${ROOT_VERSION}/,/## [0-9]/" CHANGELOG.md | sed '1d;$d')
-            if [ -n "$CHANGELOG_SECTION" ]; then
-              RELEASE_NOTES="$CHANGELOG_SECTION"
-            fi
+          if ! git rev-parse "$ROOT_TAG" >/dev/null 2>&1; then
+            git tag "$ROOT_TAG"
+            git push origin "$ROOT_TAG"
+          else
+            echo "Tag $ROOT_TAG already exists, skipping tag creation"
           fi
 
-          gh release create "$ROOT_TAG" \
-            --title "oneidentity v${ROOT_VERSION}" \
-            --notes "$RELEASE_NOTES" \
-            --latest
+          if ! gh release view "$ROOT_TAG" >/dev/null 2>&1; then
+            RELEASE_NOTES="Release of oneidentity monorepo v${ROOT_VERSION}"
+            if [ -f "CHANGELOG.md" ]; then
+              CHANGELOG_SECTION=$(awk "/## ${ROOT_VERSION}/,/## [0-9]/" CHANGELOG.md | sed '1d;$d')
+              if [ -n "$CHANGELOG_SECTION" ]; then
+                RELEASE_NOTES="$CHANGELOG_SECTION"
+              fi
+            fi
+
+            gh release create "$ROOT_TAG" \
+              --title "oneidentity v${ROOT_VERSION}" \
+              --notes "$RELEASE_NOTES" \
+              --latest
+          else
+            echo "Release for $ROOT_TAG already exists, skipping release creation"
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
