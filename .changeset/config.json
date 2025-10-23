@@ -19,6 +19,6 @@
   "ignore": [],
   "privatePackages": {
     "version": true,
-    "tag": true
+    "tag": false
   }
 }
