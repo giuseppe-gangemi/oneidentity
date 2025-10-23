@@ -3,10 +3,20 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [],
+  "linked": [
+    [
+      "oneidentity",
+      "oi-frontend",
+      "oi-control-panel",
+      "oneid-ecs-core",
+      "oneid-ecs-internal-idp",
+      "infra"
+    ]
+  ],
   "access": "restricted",
   "baseBranch": "main",
-  "updateInternalDependencies": "minor",
+  "updateInternalDependencies": "patch",
+  "ignore": [],
   "privatePackages": {
     "version": true,
     "tag": true
