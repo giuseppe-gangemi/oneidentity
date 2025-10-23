@@ -30,18 +30,16 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Create Release Pull Request or Publish to GitHub
+      - name: Create Release Pull Request
         id: changesets
         uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
         with:
           version: yarn run version
-          publish: echo "Skipping publish"
-          createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Tag and Release Root Package Only
-        if: steps.changesets.outputs.published == 'true'
+        if: steps.changesets.outputs.hasChangesets == 'false'
         run: |
           ROOT_VERSION=$(node -p "require('./package.json').version")
           ROOT_TAG="oneidentity@${ROOT_VERSION}"
