@@ -36,5 +36,6 @@ jobs:
         with:
           version: yarn run version
           publish: yarn changeset tag
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
