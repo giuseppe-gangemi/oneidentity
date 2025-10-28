@@ -16,7 +16,8 @@
     "src/oneid/oneid-control-panel/",
     "src/oneid/oneid-ecs-core/",
     "src/oneid/oneid-ecs-internal-idp/",
-    "src/infra/"
+    "src/infra/",
+    "."
   ],
   "publishConfig": {
     "access": "restricted"
