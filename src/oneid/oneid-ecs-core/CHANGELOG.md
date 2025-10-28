@@ -1,5 +1,11 @@
 # oneid-ecs-core
 
+## 4.1.0
+
+### Minor Changes
+
+- ac3d5b3: test minor bump
+
 ## 4.0.0
 
 ### Major Changes
