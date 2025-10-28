@@ -4,13 +4,6 @@
   "private": false,
   "repository": "git+https://github.com/pagopa/oneidentity.git",
   "license": "ISC",
-  "dependencies": {
-    "oi-frontend": "workspace:*",
-    "oi-control-panel": "workspace:*",
-    "oneid-ecs-core": "workspace:*",
-    "oneid-ecs-internal-idp": "workspace:*",
-    "infra": "workspace:*"
-  },
   "devDependencies": {
     "@changesets/cli": "^2.29.7"
   },
