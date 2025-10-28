@@ -1,5 +1,11 @@
 # oneidentity
 
+## 4.0.0
+
+### Major Changes
+
+- 34f6145: test major bump
+
 ## 3.2.0
 
 ### Minor Changes
