@@ -73,6 +73,7 @@ public class SAMLController {
   public Response samlACS(@BeanParam @Valid SAMLResponseDTO samlResponseDTO) {
     Log.info("start");
     // 1a. Get CurrentAuthDTO parameters
+    // TODO: remove
 
     org.opensaml.saml.saml2.core.Response response = currentAuthDTO.getResponse();
     SAMLSession samlSession = currentAuthDTO.getSamlSession();
