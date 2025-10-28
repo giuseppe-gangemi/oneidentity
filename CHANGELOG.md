@@ -1,5 +1,11 @@
 # oneidentity
 
+## 3.1.0
+
+### Minor Changes
+
+- ac992c6: core bump
+
 ## 3.0.0
 
 ### Major Changes

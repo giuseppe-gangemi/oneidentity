@@ -1,5 +1,11 @@
 # oneid-ecs-core
 
+## 3.5.0
+
+### Minor Changes
+
+- ac992c6: core bump
+
 ## 3.4.0
 
 ### Minor Changes
