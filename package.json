@@ -1,15 +1,15 @@
 {
   "name": "oneidentity",
   "version": "3.0.0",
-  "private": true,
+  "private": false,
   "repository": "git+https://github.com/pagopa/oneidentity.git",
   "license": "ISC",
   "dependencies": {
-    "oi-frontend": "*",
-    "oi-control-panel": "*",
-    "oneid-ecs-core": "*",
-    "oneid-ecs-internal-idp": "*",
-    "infra": "*"
+    "oi-frontend": "workspace:*",
+    "oi-control-panel": "workspace:*",
+    "oneid-ecs-core": "workspace:*",
+    "oneid-ecs-internal-idp": "workspace:*",
+    "infra": "workspace:*"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7"
@@ -23,7 +23,9 @@
     "src/oneid/oneid-control-panel/",
     "src/oneid/oneid-ecs-core/",
     "src/oneid/oneid-ecs-internal-idp/",
-    "src/infra/",
-    "."
-  ]
+    "src/infra/"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  }
 }

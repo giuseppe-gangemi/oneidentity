@@ -35,37 +35,6 @@ jobs:
         uses: changesets/action@06245a4e0a36c064a573d4150030f5ec548e4fcc # v1.4.10
         with:
           version: yarn run version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Tag and Release Root Package Only
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        run: |
-          ROOT_VERSION=$(node -p "require('./package.json').version")
-          ROOT_TAG="oneidentity@${ROOT_VERSION}"
-
-          if ! git rev-parse "$ROOT_TAG" >/dev/null 2>&1; then
-            git tag "$ROOT_TAG"
-            git push origin "$ROOT_TAG"
-          else
-            echo "Tag $ROOT_TAG already exists, skipping tag creation"
-          fi
-
-          if ! gh release view "$ROOT_TAG" >/dev/null 2>&1; then
-            RELEASE_NOTES="Release of oneidentity monorepo v${ROOT_VERSION}"
-            if [ -f "CHANGELOG.md" ]; then
-              CHANGELOG_SECTION=$(awk "/## ${ROOT_VERSION}/,/## [0-9]/" CHANGELOG.md | sed '1d;$d')
-              if [ -n "$CHANGELOG_SECTION" ]; then
-                RELEASE_NOTES="$CHANGELOG_SECTION"
-              fi
-            fi
-
-            gh release create "$ROOT_TAG" \
-              --title "oneidentity v${ROOT_VERSION}" \
-              --notes "$RELEASE_NOTES" \
-              --latest
-          else
-            echo "Release for $ROOT_TAG already exists, skipping release creation"
-          fi
+          publish: yarn changeset tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
