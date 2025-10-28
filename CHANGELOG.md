@@ -1,5 +1,11 @@
 # oneidentity
 
+## 3.2.0
+
+### Minor Changes
+
+- f1b0f9c: bump minor
+
 ## 3.1.0
 
 ### Minor Changes

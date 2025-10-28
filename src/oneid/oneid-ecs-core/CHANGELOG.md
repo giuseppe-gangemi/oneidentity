@@ -1,5 +1,11 @@
 # oneid-ecs-core
 
+## 3.6.0
+
+### Minor Changes
+
+- f1b0f9c: bump minor
+
 ## 3.5.0
 
 ### Minor Changes
