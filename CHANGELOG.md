@@ -1,5 +1,11 @@
 # oneidentity
 
+## 4.2.0
+
+### Minor Changes
+
+- a84a288: improve changesets
+
 ## 4.1.0
 
 ### Minor Changes
