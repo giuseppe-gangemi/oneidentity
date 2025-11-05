@@ -13,7 +13,7 @@ class ISServiceImplTest {
 
   @Test
   void getLatestIdpMetadata() {
-    String metadata = isServiceImpl.getLatestIdpMetadata("spid");
+    String metadata = isServiceImpl.getLatestIdpMetadata("cie");
     Assertions.assertNotNull(metadata);
   }
 }
