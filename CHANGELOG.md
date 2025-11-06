@@ -1,5 +1,12 @@
 # oneidentity
 
+## 5.0.0
+
+### Major Changes
+
+- 55813ef: pr2
+- 20bd7aa: pr1
+
 ## 4.2.0
 
 ### Minor Changes
